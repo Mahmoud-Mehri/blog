@@ -11,8 +11,8 @@ module.exports = {
         client_secret: 'your_client_secret'
     },
     mailer: {
-        service: 'hotmail',
-        user: 'Mahmood_mehri@hotmail.com',
-        pass: 'MM1369'
+        service: 'mail_service',
+        user: 'user_name',
+        pass: 'password'
     }
 }
