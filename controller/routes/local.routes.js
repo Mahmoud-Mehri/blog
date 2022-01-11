@@ -37,8 +37,9 @@ Router.post('/signup', (req, res) => {
             newuser.followings.push(req.body.username);
             newuser.save((user) => {
                 req.session.user = user;
-                sendMail(req.body.email);
                 res.redirect('/dashboard');
+            }).then(() => {
+                sendMail(newuser.email);
             })
         }
     })
