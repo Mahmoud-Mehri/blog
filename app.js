@@ -16,13 +16,13 @@ const
     fbRoutes      = require('./controller/routes/fb.routes');
 
 const 
-    key = require('./key'),
-    db  = key.db.remote || 'mongodb://localhost/' + key.db.local,
+    config = require('./config'),
+    db  = config.db.remote || 'mongodb://localhost/' + config.db.local,
     port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(session({secret: key.session.secret}));
+app.use(session({secret: config.session.secret}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static('public'));

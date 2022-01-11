@@ -1,7 +1,8 @@
 const
     Router = require('express').Router(),
     User = require('../../model/user.model'),
-    bcrypt = require('bcryptjs');
+    bcrypt = require('bcryptjs'),
+    sendMail = require('../mailer');
 
 const salt = bcrypt.genSaltSync(10); 
 
@@ -36,6 +37,7 @@ Router.post('/signup', (req, res) => {
             newuser.followings.push(req.body.username);
             newuser.save((user) => {
                 req.session.user = user;
+                sendMail(req.body.email);
                 res.redirect('/dashboard');
             })
         }

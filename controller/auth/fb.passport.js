@@ -1,7 +1,7 @@
 const 
 	passport 	     = require('passport'),
 	FacebookStrategy = require('passport-facebook'),
-	key			     = require('../../key'),
+	config			 = require('../../config.js'),
 	User 		     = require('../../model/user.model');
 
 passport.serializeUser((user,done) => {
@@ -15,8 +15,8 @@ passport.deserializeUser((id,done) => {
 })
 
 passport.use(new FacebookStrategy({
-   clientID: key.facebook.client_ID,
-   clientSecret: key.facebook.client_secret,
+   clientID: config.facebook.client_ID,
+   clientSecret: config.facebook.client_secret,
    callbackURL: "/auth/facebook/redirect",
    profileFields: ['id', 'emails', 'name', 'picture.type(large)']
  },
