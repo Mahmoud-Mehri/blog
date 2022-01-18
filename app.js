@@ -35,7 +35,7 @@ app.use('/auth/facebook', fbRoutes);
 app.use('/article', articleRoutes);
 app.use('/user', userRoutes);
 
-mongoose.connect(db, (err) => {
+mongoose.connect(db, { useNewUrlParser: true } , (err) => {
     if (err){
         console.log(err);
     }else{
