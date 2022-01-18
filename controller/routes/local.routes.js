@@ -28,19 +28,18 @@ Router.post('/signup', (req, res) => {
         if (errors.length > 0){
             res.render('signup', {errors,});
         }else{
-            let newuser = new User;
+            let newuser = new User();
             newuser.username = req.body.username;
             newuser.password = bcrypt.hashSync(req.body.password, salt);
             newuser.email = req.body.email;
             newuser.profile_pic = req.body.profile_pic;
             newuser.followers.push(req.body.username);
             newuser.followings.push(req.body.username);
-            newuser.save((user) => {
+            newuser.save().then((user) => {
                 req.session.user = user;
                 res.redirect('/dashboard');
-            }).then(() => {
                 sendMail(newuser.email);
-            })
+            }).catch(e => console.log(e));
         }
     })
 })
