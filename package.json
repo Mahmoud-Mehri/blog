@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AliSawari/blog.git"
+    "url": "git+https://github.com/Mahmoud-Mehri/blog"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AliSawari/blog/issues"
+    "url": "https://github.com/Mahmoud-Mehri/blog/issues"
   },
-  "homepage": "https://github.com/AliSawari/blog#readme",
+  "homepage": "https://github.com/Mahmoud-Mehri/blog#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.1",
